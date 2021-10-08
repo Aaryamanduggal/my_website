@@ -1,4 +1,4 @@
-baseURL: https://aaryamanduggal.netlify.app/
+baseURL: https://aaryamanduggal.netlify.app
 languageCode: en-us
 title: Portfolio Website for Aaryaman Duggal 
 theme: forty
@@ -81,9 +81,9 @@ params:
   tiles:
     enable: yes
     showcase:
-      - image: pic01.jpg
-        subtitle: Ipsum Dolor Sit Amet
-        title: Aliquam
+      - image: lbs.jpg
+        subtitle: LBS
+        title: LBS
         url: blogs/aliquam
       - image: pic02.jpg
         subtitle: Feugiat Amet Tempus
