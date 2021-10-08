@@ -1,4 +1,4 @@
-baseURL: https://aaryamanduggal.netlify.app
+baseURL: https://aaryamanduggal.netlify.app/
 languageCode: en-us
 title: Portfolio Website for Aaryaman Duggal 
 theme: forty
@@ -12,11 +12,11 @@ params:
       AND RELEASED UNDER THE CREATIVE COMMONS.
     title: Hi, my name is Aaryaman Duggal
   blog: {}
-  contact: +91 9953726945
-    address: Palgrave Gardens 
+  contact: 
+    address:  
       - city: City, ST 00000
         country: United Kingdom 
-        street: Street
+        street: Palgrave Gardens
         title: Address
     buttonClear: Clear
     buttonSend: Send message
@@ -25,7 +25,7 @@ params:
         title: Email
     enable: yes
     phone:
-      - phone: (000) 000-0000 x1234
+      - phone: (91) 9953726945 x1234
         title: Phone
   custom_css: []
   custom_js: []
@@ -34,8 +34,8 @@ params:
     heading: Page couldn't be found
     text: Please visit [this page](/)
   favicon: favicon.ico
-  footer: This is the footer 
-    copyright: Company Name
+  footer: 
+    copyright: Company Name 
     enable: yes
     quicklinks:
       - alt: HTML5 UP
@@ -43,8 +43,8 @@ params:
         url: https://www.html5up.net
     social:
  #     - icon: fa-twitter
-        label: Twitter
-        url: https://www.twitter.com
+  #      label: Twitter
+   #     url: https://www.twitter.com
       - icon: fa-facebook
         label: Facebook
         url: https://www.facebook.com
