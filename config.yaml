@@ -44,13 +44,13 @@ params:
     social:
       - icon: fa-instagram
         label: Instagram
-        url: https://www.instagram.com
+        url: https://www.instagram.com/aaryaman.d/
       - icon: fa-github
         label: GitHub
-        url: https://www.github.com
+        url: https://github.com/Aaryamanduggal/
       - icon: fa-linkedin
         label: LinkedIn
-        url: https://www.linkedin.com
+        url: https://www.linkedin.com/in/aaryamanduggal/
   image: ''
   name: Your name
   navigation:
