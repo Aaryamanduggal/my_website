@@ -68,7 +68,7 @@ params:
   tiles:
     enable: yes
     showcase:
-      - image: lbs.jpg
+      - image: pic.jpg
         subtitle: Know More About Me
         title: About Me
         url: blogs/aliquam
@@ -83,5 +83,5 @@ params:
       - image: pic04.jpg
         subtitle: Data Analytics and Quantitative Projects
         title: Projects
-        url: blogs
+        url: blogs/ipsum
     
