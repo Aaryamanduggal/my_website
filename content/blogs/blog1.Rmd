@@ -1,32 +1,53 @@
 ---
-categories:
-- ""
-- ""
-date: "2017-10-31T21:28:43-05:00"
-description: ""
-draft: false
+title: "Yield Curve Inversion"
+date: '2017-10-31T21:28:43-05:00'
+description: ''
+draft: no
 image: pic.jpg
-keywords: ""
+keywords: ''
 slug: ipsum
-title: Yield Curve Inversion
+categories:
+- ''
+- ''
 ---
+
+```{r load-libraries, echo=FALSE, include=FALSE, message=FALSE}
+library(tidyverse)  # Load ggplot2, dplyr, and all the other tidyverse packages
+library(mosaic)
+library(ggthemes)
+library(GGally)
+library(readxl)
+library(here)
+library(skimr)
+library(janitor)
+library(broom)
+library(tidyquant)
+library(infer)
+library(openintro)
+```
 
 Every so often, we hear warnings from commentators on the "inverted yield curve" and its predictive power with respect to recessions. An explainer what a [inverted yield curve is can be found here](https://www.reuters.com/article/us-usa-economy-yieldcurve-explainer/explainer-what-is-an-inverted-yield-curve-idUSKBN1O50GA). If you'd rather listen to something, here is a great podcast from [NPR on yield curve indicators](https://www.podbean.com/media/share/dir-4zgj9-6aefd11)
 
 In addition, many articles and commentators think that, e.g., [*Yield curve inversion is viewed as a harbinger of recession*](https://www.bloomberg.com/news/articles/2019-08-14/u-k-yield-curve-inverts-for-first-time-since-financial-crisis). One can always doubt whether inversions are truly a harbinger of recessions, and [use the attached parable on yield curve inversions](https://twitter.com/5_min_macro/status/1161627360946511873).
 
+```{r, setup, echo=FALSE}
+knitr::opts_chunk$set(
+  message = FALSE, 
+  warning = FALSE, 
+  tidy=FALSE,     # display code as typed
+  size="small")   # slightly smaller font for code
+options(digits = 3)
 
-```{r yield_curve_parable.jpg, echo=FALSE, out.width="100%"}
-knitr::include_graphics(here::here("images", "yield_curve_parable.jpg"), error = FALSE)
+# default figure size
+knitr::opts_chunk$set(
+  fig.width=6.75, 
+  fig.height=6.75,
+  fig.align = "center"
+)
 ```
 
 
 In our case we will look at US data and use the [FRED database](https://fred.stlouisfed.org/) to download historical yield curve rates, and plot the yield curves since 1999 to see when the yield curves flatten. If you want to know more, a very nice article that explains the [yield curve is and its inversion can be found here](https://fredblog.stlouisfed.org/2018/10/the-data-behind-the-fear-of-yield-curve-inversions/). At the end of this challenge you should produce this chart
-
-```{r yield_curve_challenge, echo=FALSE, out.width="100%"}
-knitr::include_graphics(here::here("images", "yield_curve_challenge.png"), error = FALSE)
-```
-
 
 First, we will load the yield curve data file that contains data on the yield curve since 1960-01-01
 
@@ -52,10 +73,6 @@ This may seem long but it should be easy to produce the following three plots
 
 ### Yields on US rates by duration since 1960
 
-```{r yield_curve_1, echo=FALSE, out.width="100%"}
-knitr::include_graphics(here::here("images", "yield_curve1.png"), error = FALSE)
-```
-
 ```{r yield_curve_1,fig.width=20, fig.height=10, fig.fullwidth=TRUE}
 yield_curve %>% 
   ggplot(aes(x=date)) +
@@ -66,11 +83,6 @@ yield_curve %>%
   labs(title="Yields on U.S Treasury rates since 1960",x="",y="%",caption="Source: St. Louis Federal Reserve Economic Database (FRED)")
 ```
 ### Monthly yields on US rates by duration since 1999 on a year-by-year basis
-
-
-```{r yield_curve_2, echo=FALSE, out.width="100%"}
-knitr::include_graphics(here::here("images", "yield_curve2.png"), error = FALSE)
-```
 
 ```{r yield_curve_2,fig.width=20, fig.height=10, fig.fullwidth=TRUE}
 yield_curve_dates <- yield_curve %>% 
@@ -99,12 +111,7 @@ yield_curve_dates %>%
 
 ### 3-month and 10-year yields since 1999
 
-```{r yield_curve_3, echo=FALSE, out.width="100%"}
-knitr::include_graphics(here::here("images", "yield_curve3.png"), error = FALSE)
-```
-
-
-```{r yield_curve_3,fig.width=20, fig.height=10, fig.fullwidth=TRUE}
+```{r yield_curve_3.2,fig.width=20, fig.height=10, fig.fullwidth=TRUE}
 yield_curve_3_10 <- yield_curve_dates %>% 
   filter(maturity %in% c("3m","10y")) 
 
